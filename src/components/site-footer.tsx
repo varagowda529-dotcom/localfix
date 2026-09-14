@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { Megaphone, MapPin, FlaskConical } from "lucide-react";
@@ -23,7 +23,6 @@ export function SiteFooter() {
         { href: "/login", label: t("login") },
         { href: "/signup", label: t("signup") },
         { href: "/dashboard", label: t("dashboard") },
-        { href: "/admin", label: t("admin") },
       ],
     },
     {
