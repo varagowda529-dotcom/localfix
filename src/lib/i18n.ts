@@ -1,4 +1,4 @@
-export type Lang = "en" | "kn";
+﻿export type Lang = "en" | "kn";
 
 export const translations = {
   en: {
@@ -156,6 +156,30 @@ export const translations = {
     aboutCtaTitle: "Transparency starts with one report.",
     createAccount: "Create an account",
     exploreProblemsShort: "Explore problems",
+
+    // Admin Dashboard
+    adminDashboardTitle: "Platform Administration",
+    adminDashboardDesc: "System overview, pending actions, and moderation.",
+    adminRoleBadge: "Admin",
+    staffBadge: "Staff",
+    quickActions: "Quick Actions",
+    needsAttention: "Needs Attention",
+    pendingVerifications: "Pending Verifications",
+    overdueProblems: "Overdue Problems",
+    newReports: "New Reports",
+    totalUsers: "Total Users",
+    openProblems: "Open Problems",
+    manageVerifications: "Manage Verifications",
+    manageProblems: "Manage Problems",
+    manageUsers: "Manage Users",
+    manageCategories: "Manage Categories",
+    manageLocations: "Manage Locations",
+    manageComments: "Manage Comments",
+    reviewAll: "Review All",
+    noPendingVerifications: "No pending verifications. All clear!",
+    noOverdueProblems: "No overdue problems. Excellent!",
+    noNewReports: "No new reports.",
+    goToAdminPanel: "Go to Admin Panel",
 
     // Login
     loginWelcome: "Welcome back",
@@ -548,7 +572,7 @@ export const translations = {
       "ಹೆಚ್ಚು ಗಮನ ಮತ್ತು ವಿಳಂಬ ಸಮಸ್ಯೆಗಳನ್ನು ವಿಶಾಲ ಪ್ರೇಕ್ಷಕರಿಗೆ ವರ್ಧಿಸುತ್ತಾರೆ.",
     verifPendingT: "ಪರಿಶೀಲನೆ ಬಾಕಿ",
     verifPendingB:
-      "ನಾಗರಿಕರಲ್ಲದ ಪಾತ್ರಗಳು ತಕ್ಷಣ ನೋಂದಾಯಿಸುತ್ತವೆ ಆದರೆ ಮಾಡರೇಟರ್ ಅನುಮೋದಿಸುವವರೆಗೆ “ಪರಿಶೀಲನೆ ಬಾಕಿ” ಬ್ಯಾಡ್ಜ್ ತೋರಿಸುತ್ತವೆ.",
+      "ನಾಗರಿಕರಲ್ಲದ ಪಾತ್ರಗಳು ತಕ್ಷಣ ನೋಂದಾಯಿಸುತ್ತವೆ ಆದರೆ ಮಾಡರೇಟರ್ ಅನುಮೋದಿಸುವವರೆಗೆ “ಪರಿಶೀಲನೆ ಬಾಕಿ” ತೋರಿಸುತ್ತವೆ.",
     hierEyebrow: "ಸ್ಥಳ ಶ್ರೇಣಿ",
     hierTitle: "ಭಾರತ ಹೇಗೆ ಆಡಳಿತ ನಡೆಸುತ್ತದೆ ಎಂಬುದಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ",
     hierDesc:
@@ -563,6 +587,30 @@ export const translations = {
     aboutCtaTitle: "ಪಾರದರ್ಶಕತೆ ಒಂದೇ ವರದಿಯಿಂದ ಆರಂಭವಾಗುತ್ತದೆ.",
     createAccount: "ಖಾತೆಯನ್ನು ರಚಿಸಿ",
     exploreProblemsShort: "ಸಮಸ್ಯೆಗಳನ್ನು ನೋಡಿ",
+
+    // Admin Dashboard
+    adminDashboardTitle: "ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಆಡಳಿತ",
+    adminDashboardDesc: "ಸಿಸ್ಟಮ್ ಅವಲೋಕನ, ಬಾಕಿ ಇರುವ ಕಾರ್ಯಗಳು ಮತ್ತು ಮಾಡರೇಶನ್.",
+    adminRoleBadge: "ಅಡ್ಮಿನ್",
+    staffBadge: "ಸಿಬ್ಬಂದಿ",
+    quickActions: "ತ್ವರಿತ ಕ್ರಿಯೆಗಳು",
+    needsAttention: "ಗಮನ ಅಗತ್ಯವಿದೆ",
+    pendingVerifications: "ಬಾಕಿ ಇರುವ ಪರಿಶೀಲನೆಗಳು",
+    overdueProblems: "ವಿಳಂಬವಾದ ಸಮಸ್ಯೆಗಳು",
+    newReports: "ಹೊಸ ವರದಿಗಳು",
+    totalUsers: "ಒಟ್ಟು ಬಳಕೆದಾರರು",
+    openProblems: "ತೆರೆದ ಸಮಸ್ಯೆಗಳು",
+    manageVerifications: "ಪರಿಶೀಲನೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ",
+    manageProblems: "ಸಮಸ್ಯೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ",
+    manageUsers: "ಬಳಕೆದಾರರನ್ನು ನಿರ್ವಹಿಸಿ",
+    manageCategories: "ವರ್ಗಗಳನ್ನು ನಿರ್ವಹಿಸಿ",
+    manageLocations: "ಸ್ಥಳಗಳನ್ನು ನಿರ್ವಹಿಸಿ",
+    manageComments: "ಕಾಮೆಂಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ",
+    reviewAll: "ಎಲ್ಲವನ್ನೂ ಪರಿಶೀಲಿಸಿ",
+    noPendingVerifications: "ಯಾವುದೇ ಪರಿಶೀಲನೆಗಳಿಲ್ಲ. ಎಲ್ಲಾ ಸ್ಪಷ್ಟವಾಗಿದೆ!",
+    noOverdueProblems: "ಯಾವುದೇ ವಿಳಂಬವಾದ ಸಮಸ್ಯೆಗಳಿಲ್ಲ. ಅತ್ಯುತ್ತಮ!",
+    noNewReports: "ಯಾವುದೇ ಹೊಸ ವರದಿಗಳಿಲ್ಲ.",
+    goToAdminPanel: "ಅಡ್ಮಿನ್ ಪ್ಯಾನಲ್‌ಗೆ ಹೋಗಿ",
 
     // Login
     loginWelcome: "ಮತ್ತೆ ಸ್ವಾಗತ",

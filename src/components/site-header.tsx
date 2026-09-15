@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,7 +9,6 @@ import {
   X,
   LogOut,
   LayoutDashboard,
-  ShieldCheck,
   PlusCircle,
   Clock3,
 } from "lucide-react";
@@ -38,6 +37,7 @@ export function SiteHeader({ user }: { user: SessionUser | null }) {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur">
       <div className="container-site flex h-16 items-center justify-between gap-4">
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 text-white shadow-sm">
             <Megaphone className="h-5 w-5" />
@@ -47,6 +47,7 @@ export function SiteHeader({ user }: { user: SessionUser | null }) {
           </span>
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => (
             <Link
@@ -63,6 +64,7 @@ export function SiteHeader({ user }: { user: SessionUser | null }) {
           ))}
         </nav>
 
+        {/* Right side */}
         <div className="hidden items-center gap-2.5 lg:flex">
           <LanguageSwitcher />
 
@@ -75,12 +77,6 @@ export function SiteHeader({ user }: { user: SessionUser | null }) {
                 <LayoutDashboard className="h-4 w-4" />
                 {t("dashboard")}
               </Link>
-              {user.isStaff && (
-                <Link href="/admin" className="btn-ghost">
-                  <ShieldCheck className="h-4 w-4 text-accent-600" />
-                  {t("admin")}
-                </Link>
-              )}
               <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 py-1 pr-3 pl-1">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-500 text-xs font-bold text-white">
                   {user.fullName.charAt(0).toUpperCase()}
@@ -117,6 +113,7 @@ export function SiteHeader({ user }: { user: SessionUser | null }) {
           </Link>
         </div>
 
+        {/* Mobile toggle */}
         <div className="flex items-center gap-2 lg:hidden">
           <LanguageSwitcher />
           <button
@@ -129,6 +126,7 @@ export function SiteHeader({ user }: { user: SessionUser | null }) {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {open && (
         <div className="border-t border-slate-200 bg-white lg:hidden">
           <div className="container-site flex flex-col gap-1 py-4">
@@ -152,11 +150,6 @@ export function SiteHeader({ user }: { user: SessionUser | null }) {
                   <Link href="/dashboard" onClick={() => setOpen(false)} className="btn-outline justify-start">
                     <LayoutDashboard className="h-4 w-4" /> {t("dashboard")} ({user.fullName})
                   </Link>
-                  {user.isStaff && (
-                    <Link href="/admin" onClick={() => setOpen(false)} className="btn-outline justify-start">
-                      <ShieldCheck className="h-4 w-4" /> {t("admin")}
-                    </Link>
-                  )}
                   <form action={logout}>
                     <button type="submit" className="btn-outline w-full justify-start">
                       <LogOut className="h-4 w-4" /> {t("logout")}

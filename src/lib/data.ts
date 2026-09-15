@@ -1,4 +1,4 @@
-import { cache } from "react";
+﻿import { cache } from "react";
 import {
   and,
   asc,
@@ -117,7 +117,6 @@ function decorate(
 ): ProblemCard[] {
   const byId = new Map(all.map((l) => [l.id, l]));
   return rows.map((r) => {
-    // build path quickly without re-querying
     const path: Location[] = [];
     let cur = byId.get(r.problem.locationId);
     let guard = 0;
@@ -391,10 +390,6 @@ export async function pendingVerificationCount() {
   return rows[0]?.n ?? 0;
 }
 
-/**
- * Problem counts rolled up the location tree: entry for every location id is
- * the number of problems inside its whole subtree.
- */
 export const getLocationCountRollup = cache(async (): Promise<Map<number, number>> => {
   const all = await getLocations();
   const directRows = await db
@@ -416,3 +411,29 @@ export const getLocationCountRollup = cache(async (): Promise<Map<number, number
   for (const loc of all) sum(loc.id);
   return rollup;
 });
+
+/* ----------------------------- admin dashboard helpers --------------------- */
+
+export async function adminDashboardStats() {
+  const [totals] = await db.select({ n: count() }).from(users);
+  const [open] = await db.select({ n: count() }).from(problems).where(inArray(problems.status, ["reported", "verified", "awaiting_response", "in_progress", "overdue"]));
+  const [pendingVerif] = await db.select({ n: count() }).from(verificationRequests).where(eq(verificationRequests.status, "pending"));
+  const [overdue] = await db.select({ n: count() }).from(problems).where(eq(problems.status, "overdue"));
+  
+  return {
+    totalUsers: totals?.n ?? 0,
+    openProblems: open?.n ?? 0,
+    pendingVerifications: pendingVerif?.n ?? 0,
+    overdueProblems: overdue?.n ?? 0,
+  };
+}
+
+export async function adminRecentReports(limit = 4) {
+  const all = await getLocations();
+  const rows = await db.select(cardSelect).from(problems).innerJoin(categories, eq(categories.id, problems.categoryId)).innerJoin(users, eq(users.id, problems.reporterId)).where(eq(problems.status, "reported")).orderBy(desc(problems.createdAt)).limit(limit);
+  return decorate(rows, all);
+}
+
+export async function adminRecentVerifications(limit = 4) {
+  return db.select({ request: verificationRequests, user: users }).from(verificationRequests).innerJoin(users, eq(users.id, verificationRequests.userId)).where(eq(verificationRequests.status, "pending")).orderBy(desc(verificationRequests.createdAt)).limit(limit);
+}
